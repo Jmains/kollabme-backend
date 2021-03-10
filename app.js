@@ -11,6 +11,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const http = require("http");
 const checkAuth = require("./utils/check-auth");
+const path = require("path");
 require("dotenv").config();
 // Utils
 const sendRefreshToken = require("./utils/sendRefreshToken");
