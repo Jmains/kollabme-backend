@@ -43,7 +43,6 @@ app.get("/*", (req, res) => {
 app.disable("x-powered-by");
 app.use(
   cors({
-    origin: process.env.ORIGIN, // Put frontend origin here
     credentials: true, // For cookies
   })
 );
