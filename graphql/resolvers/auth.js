@@ -59,7 +59,6 @@ module.exports = {
       const refreshToken = generateRefreshToken(user);
 
       sendRefreshToken(res, refreshToken);
-      console.log(res);
 
       return {
         ...user._doc,

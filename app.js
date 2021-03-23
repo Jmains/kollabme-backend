@@ -35,16 +35,19 @@ const server = new ApolloServer({
   // },
 });
 
-app.use(express.static(path.join(__dirname, "dist")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "dist")));
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
-});
+  app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "dist", "index.html"));
+  });
+}
 
 app.disable("x-powered-by");
 app.use(
   cors({
     credentials: true, // For cookies
+    // origin: "http://localhost:3000",
   })
 );
 
