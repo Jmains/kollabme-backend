@@ -187,6 +187,8 @@ module.exports = {
         let search = {};
         let allCollabs = null;
 
+        console.log("username: ", username);
+
         // Search USER tracks
         // if (searchQuery && username) {
         //   search = {
@@ -234,7 +236,7 @@ module.exports = {
           };
         });
 
-        const userConnection = {
+        const userCollabsConnection = {
           edges: edges,
           pageInfo: {
             endCursor: collabs.length ? collabs[collabs.length - 1].cursor : null,
@@ -243,9 +245,9 @@ module.exports = {
               : false,
           },
         };
-        return userConnection;
+        return userCollabsConnection;
       } catch (err) {
-        throw new Error("Failed to get tracks", err);
+        throw new Error("Failed to get collaborators", err);
       }
     },
 
